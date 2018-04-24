@@ -1,0 +1,15 @@
+{
+  "name": "uwi-grade-checker",
+  "description": "Simple command line tool to check grades for UWI students.",
+  "version": "1.0.0",
+  "main": "main.js",
+  "author": "Jonathan Herbert",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "run": "node main.js"    
+  },
+  "dependencies": {
+    "puppeteer": "^1.3.0"
+  }
+}
