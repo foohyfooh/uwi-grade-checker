@@ -10,6 +10,8 @@ Include a config.json file in the project directory that contains the following:
 - id : your UWI Student ID number
 - password: the password for your UWI account
 
+<b>Note</b>: Ensure the id and password properties are strings.
+
 ```
 > yarn
 ```

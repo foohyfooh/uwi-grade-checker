@@ -2,7 +2,12 @@ const puppeteer = require('puppeteer');
 const config = require('./config.json');
 
 if(config.id === undefined || config.password === undefined){
-  console.log('Ensure a config.json file exists with id and password properties.');
+  console.error('Ensure a config.json file exists with id and password properties.');
+  process.exit();
+}
+
+if(typeof(config.id) !== 'string' || typeof(config.password) !== 'string'){
+  console.error('Ensure config.json id and password properties are strings.');
   process.exit();
 }
 
