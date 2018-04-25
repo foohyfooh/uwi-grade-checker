@@ -58,6 +58,8 @@ puppeteer.launch()
       await page.screenshot({path: `grade_${i + 1}.png`});
     }
 
+    console.log('Check the grade_?.png files generated for your grades.');
+
     await browser.close();
 })
 .catch(e => {

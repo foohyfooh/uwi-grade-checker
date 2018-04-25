@@ -26,5 +26,6 @@ OR
 ```
 > node main.js 
 ```
+The files outputted by this script are .png images which show the grade for each of the courses that you have this semester.
 
 <b>Note</b>: This script relies on the structure of the UWI website so if the structure changes this script will fail.
