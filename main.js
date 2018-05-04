@@ -83,6 +83,7 @@ puppeteer.launch()
     .map(component => component + '\n')
     .reduce((gradeInfo, component) => gradeInfo + component);
 
+    console.log(course);
     console.log(gradeInfo);
     
     notifier.notify({
