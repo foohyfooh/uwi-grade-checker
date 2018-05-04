@@ -12,10 +12,13 @@ Node tool using [Puppeteer](https://github.com/GoogleChrome/puppeteer) to check 
 
 
 ## Setup
-Include a config.json file in the project directory that contains the following:
-- id : your UWI Student ID number
-- password: the password for your UWI account \
-<b>Note</b>: Ensure the id and password properties are strings.
+Include a config.json file in the project directory like the following:
+```json
+{
+"id": "<UWI Student ID number>",
+"password": "<the password for your UWI account>"
+}
+```
 
 Install dependencies: ```yarn``` OR ```npm install```
 
