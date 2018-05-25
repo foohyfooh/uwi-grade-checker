@@ -74,14 +74,20 @@ puppeteer.launch()
 
     let grade = $('.datadisplaytable:nth-of-type(2)');
     let rows = grade.find('tr:not(:first-child)');
+    let studentGrade = 0, maxGrade = 0;
     let gradeInfo = rows.map((index, element) => {
       let row = $(element);
       let rowTitle = row.find('td:nth-of-type(1)').text();
       let rowScore = row.find('td:nth-of-type(2)').text();
+      let rowScoreParts = rowScore.split('/').map(value => Number.parseFloat(value)).map(value => isNaN(value) ? 0 : value);
+      studentGrade += rowScoreParts[0];
+      maxGrade += rowScoreParts[1];
       return `${rowTitle}: ${rowScore}`;
     }).get()
     .map(component => component + '\n')
     .reduce((gradeInfo, component) => gradeInfo + component);
+    let gradeTotal = `Total: ${studentGrade}/${maxGrade}`;
+    gradeInfo += gradeTotal + '\n';
 
     console.log(course);
     console.log(gradeInfo);
