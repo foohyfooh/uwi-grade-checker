@@ -86,8 +86,7 @@ puppeteer.launch()
     }).get()
     .map(component => component + '\n')
     .reduce((gradeInfo, component) => gradeInfo + component);
-    let gradeTotal = `Total: ${studentGrade}/${maxGrade}`;
-    gradeInfo += gradeTotal + '\n';
+    gradeInfo += `Total: ${studentGrade}/${maxGrade}` + '\n';
 
     console.log(course);
     console.log(gradeInfo);
