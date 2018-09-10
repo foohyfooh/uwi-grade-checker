@@ -100,5 +100,9 @@ puppeteer.launch()
 })
 .catch(e => {
   console.log(e);
+  notifier.notify({
+    title: 'UWI Grade Checker',
+    message: 'Failed to get the grade information'
+  })
   process.exit();
 });
