@@ -19,7 +19,7 @@ puppeteer.launch()
   const page = await browser.newPage();
   await page.goto('https://my.uwi.edu/');
   await page.tap('#userMenu a[title=\'Sign In\']');
-  
+
   //Login
   await page.waitForSelector('.btn-submit');
   await page.type('input#username', config.id)
@@ -29,13 +29,13 @@ puppeteer.launch()
   //Goto MySecureArea
   let linkElement = await page.waitForSelector('#nav li:nth-child(4) a');
   let link = await (await linkElement.getProperty('href')).jsonValue();
-  await page.goto(link);    
+  await page.goto(link);
 
-  //Goto Studnet Services & Financial Aid
+  //Goto Student Services & Financial Aid
   linkElement = await page.waitForSelector('.menuplaintable tr:nth-of-type(1) .mpdefault a');
   link = await (await linkElement.getProperty('href')).jsonValue();
   await page.goto(link);
-  
+
   //Goto Student Records
   linkElement = await page.waitForSelector('.menuplaintable tr:nth-of-type(2) .mpdefault a');
   link = await (await linkElement.getProperty('href')).jsonValue();
@@ -54,13 +54,13 @@ puppeteer.launch()
   //Click Submit
   await (await page.waitForSelector('.dataentrytable input[type=submit]')).tap();
 
-  //Get the links for the courses 
+  //Get the links for the courses
   await page.waitForSelector('.datadisplaytable');
   let linkElements = await page.$$('.datadisplaytable a');
-  let gradLinkPromises = linkElements.map(async linkElement => 
+  let gradLinkPromises = linkElements.map(async linkElement =>
     await (await linkElement.getProperty('href')).jsonValue());
   let links = await Promise.all(gradLinkPromises);
-  
+
   //Get the grades for each course
   for(let i = 0; i < linkElements.length; i++){
     await page.goto(links[i]);
@@ -90,7 +90,7 @@ puppeteer.launch()
 
     console.log(course);
     console.log(gradeInfo);
-    
+
     notifier.notify({
       title: 'UWI Grade Checker - ' + course,
       message: gradeInfo
